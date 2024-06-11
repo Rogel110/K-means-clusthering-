@@ -1,22 +1,15 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Jan 18 19:51:29 2016
-
-@author: jrose01
-"""
-
 from pandas import Series, DataFrame
 import pandas as pd
 import numpy as np
 import matplotlib.pylab as plt
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 from sklearn.cluster import KMeans
 
 """
 Data Management
 """
-data = pd.read_csv("tree_addhealth.csv")
+data = pd.read_csv("/content/drive/MyDrive/tree_addhealth.csv")
 
 #upper-case all DataFrame column names
 data.columns = map(str.upper, data.columns)
@@ -69,8 +62,8 @@ plt.xlabel('Number of clusters')
 plt.ylabel('Average distance')
 plt.title('Selecting k with the Elbow Method')
 
-# Interpret 3 cluster solution
-model3=KMeans(n_clusters=3)
+# Interpret 2 cluster solution
+model3=KMeans(n_clusters=2)
 model3.fit(clus_train)
 clusassign=model3.predict(clus_train)
 # plot clusters
